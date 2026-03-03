@@ -1,196 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+<title>ChillClutch Esports</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChillPill Ultra Premium</title>
-
-<meta property="og:title" content="ChillPill Discord Server">
-<meta property="og:description" content="Ultra premium gaming community, ranks, promotions & perks.">
 
 <style>
-:root{
---bg1:#0e0f14;
---bg2:#14162b;
---card:#16181d;
---muted:#aeb1b7;
---text:#f2f3f5;
---accent:#5865f2;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;
-color:var(--text);
-background:linear-gradient(-45deg,#0e0f14,#14162b,#0b0d18,#1a1d3b);
-background-size:400% 400%;
-animation:bgMove 18s ease infinite;
+background:#0b0b15;
+color:white;
+overflow-x:hidden;
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+/* NAV */
+nav{
+background:#0f0f1a;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 0 15px #6a00ff;
 }
 
-.hero{text-align:center;padding:100px 20px 70px}
-.hero h1{font-size:60px;margin:0;letter-spacing:1px;background:linear-gradient(90deg,#fff,#9aa4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{max-width:680px;margin:18px auto;color:var(--muted);font-size:18px}
+nav a{
+color:#aaa;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
 
-.btn{display:inline-block;margin-top:24px;padding:14px 36px;background:linear-gradient(90deg,#5865f2,#7c86ff);color:#fff;text-decoration:none;border-radius:14px;font-size:15px;font-weight:600;box-shadow:0 0 20px rgba(88,101,242,0.45);transition:.3s}
-.btn:hover{box-shadow:0 0 50px rgba(88,101,242,0.9);transform:translateY(-3px)}
+nav a:hover{
+color:#00f2ff;
+text-shadow:0 0 10px #00f2ff;
+}
 
-.wrapper{max-width:1150px;margin:auto;padding:30px 20px 90px}
+/* HEADER */
+header{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(135deg,#3a00ff,#00f2ff);
+animation: glowbg 5s infinite alternate;
+}
 
-.card{background:rgba(22,24,29,.75);backdrop-filter:blur(16px);border-radius:22px;padding:36px;margin-bottom:30px;text-align:center;border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;transition:.35s}
-.card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 0 45px rgba(88,101,242,.25)}
+@keyframes glowbg{
+0%{filter:brightness(1);}
+100%{filter:brightness(1.2);}
+}
 
-.card::before{content:"";position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(120deg,transparent,#5865f2,transparent);opacity:.25;animation:glowMove 6s linear infinite}
-.vip::before{background:linear-gradient(120deg,transparent,#ffd700,transparent)}
-.elite::before{background:linear-gradient(120deg,transparent,#a855f7,transparent)}
-.legend::before{background:linear-gradient(120deg,transparent,#4f6bff,transparent)}
+header h1{
+font-size:45px;
+margin-bottom:10px;
+text-shadow:0 0 20px #000;
+}
 
-@keyframes glowMove{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-.card>*{position:relative;z-index:1}
+.btn{
+display:inline-block;
+margin:10px;
+padding:12px 25px;
+background:#6a00ff;
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 0 15px #6a00ff;
+}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.btn:hover{
+background:#00f2ff;
+box-shadow:0 0 25px #00f2ff;
+transform:scale(1.05);
+}
 
-.badge{display:inline-block;margin-bottom:12px;padding:6px 14px;font-size:12px;font-weight:600;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25)}
+/* SECTION */
+section{
+padding:70px 20px;
+text-align:center;
+}
 
-h2{margin-bottom:22px;font-size:30px}
-p{color:var(--muted);line-height:1.6;font-size:16px}
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+margin-top:40px;
+}
 
-.price{margin-top:14px;font-size:22px;font-weight:700}
-.price span{display:block;font-size:13px;color:var(--muted)}
+.card{
+background:#151528;
+padding:25px;
+width:260px;
+border-radius:15px;
+transition:0.4s;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
 
-.stats{display:flex;justify-content:space-around;gap:20px;margin-bottom:40px}
-.stat{background:rgba(255,255,255,.04);padding:20px 30px;border-radius:16px}
-.stat h3{margin:0;font-size:28px}
-.stat span{color:var(--muted);font-size:13px}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #00f2ff;
+}
 
-.reviews{position:relative;min-height:80px}
-.review{opacity:0;position:absolute;left:0;right:0;transition:opacity .6s}
-.review.active{opacity:1;position:relative}
-.review span{display:block;margin-top:8px;color:#9aa4ff;font-size:13px}
+.card h3{
+margin-bottom:10px;
+}
 
-footer{text-align:center;margin-top:70px;font-size:13px;color:#7b7e85}
+/* RANK SECTION */
+.rank-card{
+background:linear-gradient(135deg,#6a00ff,#00f2ff);
+color:white;
+}
 
-@media(max-width:600px){.hero h1{font-size:38px}.stats{flex-direction:column}}
+/* FOOTER */
+footer{
+background:#0f0f1a;
+padding:20px;
+text-align:center;
+color:#888;
+border-top:1px solid #222;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.card{width:90%;}
+header h1{font-size:30px;}
+}
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-<h1>💊 ChillPill</h1>
-<p>Ultra premium Discord gaming community. Ranks, promotions, events & perks.</p>
-<a class="btn" href="https://discord.gg/D22hTMzEnt" target="_blank">Join Discord</a>
-</div>
+<nav>
+<a href="#tournaments">Tournaments</a>
+<a href="#ranks">Ranks</a>
+<a href="#shop">Shop</a>
+<a href="https://discord.gg/4D9dsceqjT" target="_blank">Discord</a>
+</nav>
 
-<div class="wrapper">
+<header>
+<h1>🔥 ChillClutch Esports</h1>
+<p>Professional Free Fire & Minecraft Competitive Platform</p>
 
-<div class="stats">
-<div class="stat"><h3>5K+</h3><span>Members</span></div>
-<div class="stat"><h3 id="orderCount">128</h3><span>Orders Completed</span></div>
-<div class="stat"><h3>24/7</h3><span>Active Community</span></div>
-</div>
+<a href="https://discord.gg/4D9dsceqjT" target="_blank" class="btn">
+Join Discord
+</a>
 
-<h2>🛒 Nitro & OwO Shop</h2>
-<section class="grid">
-<div class="card">
-<span class="badge">INSTANT DELIVERY</span>
-<h3>Discord Nitro Basic</h3>
-<p>Cheapest INR price with fast delivery</p>
-<div class="price">₹79 <span>Customer cheap • profit safe</span></div>
-<a class="btn" href="https://discord.gg/D22hTMzEnt">Buy Now</a>
-</div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdWaqtWL2lW4xoVjz3ULtKJfuZ1gFy0gSz2L8YWNmwjUSEUVA/viewform?usp=publish-editor"
+target="_blank"
+class="btn">
+Register Tournament
+</a>
+</header>
 
-<div class="card">
-<span class="badge">BEST VALUE</span>
-<h3>Discord Nitro (1 Month)</h3>
-<p>Premium Nitro at optimized pricing</p>
-<div class="price">₹199 <span>High demand</span></div>
-<a class="btn" href="https://discord.gg/D22hTMzEnt">Buy Now</a>
-</div>
+<!-- TOURNAMENTS -->
+<section id="tournaments">
+<h2>🏆 Official Tournaments</h2>
+
+<div class="cards">
 
 <div class="card">
-<span class="badge">POPULAR</span>
-<h3>OwO Coins Pack</h3>
-<p>Affordable coins with safe margin</p>
-<div class="price">₹10 <span>1M OwO</span></div>
-<a class="btn" href="https://discord.gg/D22hTMzEnt">Buy Now</a>
+<h3>🎯 Free Fire 1v1</h3>
+<p>Entry ₹10<br>Prize ₹15</p>
 </div>
 
 <div class="card">
-<span class="badge">HOT</span>
-<h3>OwO Mega Pack</h3>
-<p>Most purchased bundle</p>
-<div class="price">₹45 <span>5M OwO</span></div>
-<a class="btn" href="https://discord.gg/D22hTMzEnt">Buy Now</a>
+<h3>🔥 Free Fire 4v4</h3>
+<p>Entry ₹30<br>Prize ₹180</p>
 </div>
 
 <div class="card">
-<span class="badge">PRO</span>
-<h3>OwO Ultra Pack</h3>
-<p>Best price for bulk buyers</p>
-<div class="price">₹80 <span>10M OwO</span></div>
-<a class="btn" href="https://discord.gg/D22hTMzEnt">Buy Now</a>
+<h3>⛏ Minecraft 2v2</h3>
+<p>Entry ₹20<br>Prize ₹60</p>
+</div>
+
+<div class="card">
+<h3>👑 20 Player Solo</h3>
+<p>Entry ₹25<br>Prize ₹350</p>
+</div>
+
 </div>
 </section>
 
-<h2>💎 Premium Ranks</h2>
-<section class="grid">
-<div class="card vip"><span class="badge">RANK</span><h3>⭐ VIP</h3><p>Special channels + priority access</p><div class="price">₹5 <span>1M OwO</span></div><a class="btn" href="https://discord.gg/D22hTMzEnt">Buy</a></div>
-<div class="card elite"><span class="badge">RANK</span><h3>🔥 Elite</h3><p>VIP perks + event priority</p><div class="price">₹15 <span>3M OwO</span></div><a class="btn" href="https://discord.gg/D22hTMzEnt">Buy</a></div>
-<div class="card legend"><span class="badge">RANK</span><h3>👑 Legend</h3><p>All perks unlocked</p><div class="price">₹30 <span>6M OwO</span></div><a class="btn" href="https://discord.gg/D22hTMzEnt">Buy</a></div>
+<!-- RANK SYSTEM -->
+<section id="ranks">
+<h2>💎 Rank System</h2>
+
+<div class="cards">
+
+<div class="card rank-card">
+<h3>Bronze</h3>
+<p>0–5 Wins</p>
+</div>
+
+<div class="card rank-card">
+<h3>Silver</h3>
+<p>6–15 Wins</p>
+</div>
+
+<div class="card rank-card">
+<h3>Gold</h3>
+<p>16–30 Wins</p>
+</div>
+
+<div class="card rank-card">
+<h3>Elite</h3>
+<p>30+ Wins</p>
+</div>
+
+</div>
 </section>
 
-<h2>📢 Promotion Services</h2>
-<section class="grid">
-<div class="card"><h3>Basic Promo</h3><p>Server shoutout</p><div class="price">₹20 <span>1 day</span></div><a class="btn" href="https://discord.gg/D22hTMzEnt">Order</a></div>
-<div class="card"><h3>Standard Promo</h3><p>Multi-channel promotion</p><div class="price">₹50 <span>3 days</span></div><a class="btn" href="https://discord.gg/D22hTMzEnt">Order</a></div>
-<div class="card"><h3>Premium Promo</h3><p>Top feature + repeat</p><div class="price">₹120 <span>7 days</span></div><a class="btn" href="https://discord.gg/D22hTMzEnt">Order</a></div>
-</section>
+<!-- SHOP -->
+<section id="shop">
+<h2>🛒 Rank Upgrade Shop</h2>
 
-<h2>💬 Customer Reviews</h2>
+<div class="cards">
+
 <div class="card">
-<div class="reviews">
-<div class="review active">"Fast delivery and trusted service!"<span>- gamerX</span></div>
-<div class="review">"Best Discord promotion, got real members."<span>- serverowner21</span></div>
-<div class="review">"Ranks delivered instantly, highly recommended."<span>- chilluser</span></div>
-</div>
+<h3>Silver Upgrade</h3>
+<p>₹49</p>
+<a href="#" class="btn">Buy</a>
 </div>
 
-<h2>🛡 Team</h2>
-<div class="grid">
-<div class="card"><h3>Admin</h3><p>scriptboyyt</p></div>
-<div class="card"><h3>Owner</h3><p>rajat</p></div>
-<div class="card"><h3>Friends</h3><p>M I S T & S I L E N C E</p></div>
+<div class="card">
+<h3>Gold Upgrade</h3>
+<p>₹99</p>
+<a href="#" class="btn">Buy</a>
 </div>
 
-<div class="card"><h2>✨ Why ChillPill?</h2><p>Friendly, active & premium community with perks, tournaments, events and recognition.</p></div>
-
-<footer>© ChillPill Ultra Premium</footer>
-
+<div class="card">
+<h3>Elite Badge</h3>
+<p>₹199</p>
+<a href="#" class="btn">Buy</a>
 </div>
 
-<script>
-let orders=128;
-setInterval(()=>{
-orders+=Math.floor(Math.random()*2);
-document.getElementById('orderCount').innerText=orders;
-},5000);
+</div>
+</section>
 
-let index=0;
-const reviews=document.querySelectorAll('.review');
-setInterval(()=>{
-reviews[index].classList.remove('active');
-index=(index+1)%reviews.length;
-reviews[index].classList.add('active');
-},4000);
-</script>
+<footer>
+© 2026 ChillClutch Esports | Professional Competitive Community
+</footer>
 
 </body>
 </html>
